@@ -6,8 +6,6 @@ import treatment from '../../../assets/images/treatment.png';
 import DisplayServices from './DisplayServices';
 import ButtonComponent from '../../../Components/ButtonComponent/ButtonComponent';
 
-
-
 const Services = () => {
 
     const serviceData = [
@@ -57,7 +55,6 @@ const Services = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

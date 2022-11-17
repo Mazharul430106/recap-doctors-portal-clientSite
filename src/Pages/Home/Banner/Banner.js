@@ -9,11 +9,11 @@ import ButtonComponent from '../../../Components/ButtonComponent/ButtonComponent
 
 const Banner = () => {
     return (
-        <section className='py-10 px-5 lg:px-0 ' style={{
+        <section className='pt-10 px-5 lg:px-0 ' style={{
             background: `url(${bannerImg})`
         }}>
 
-            <div className="flex items-center my-10 flex-col lg:flex-row-reverse mx-auto gap-10">
+            <div className="flex items-center  flex-col lg:flex-row-reverse mx-auto gap-10">
                 <div className='lg:w-1/2'>
                     <img src={Chare} alt='' className="rounded-lg shadow-2xl" />
                 </div>

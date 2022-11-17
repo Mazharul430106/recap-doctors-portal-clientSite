@@ -5,7 +5,7 @@ import appointment from '../../../assets/images/appointment.png';
 
 const Appointment = () => {
     return (
-        <section className='my-28' style={{
+        <section className='my-28 px-5 lg:px-0 py-10 lg:py-0' style={{
             background: `url(${appointment})`
         }}>
             <div className="hero">

@@ -3,8 +3,10 @@ import { DayPicker } from 'react-day-picker';
 import chare from '../../../assets/images/chair.png';
 import bgImg from '../../../assets/images/bg.png';
 import { format } from 'date-fns';
+import AvailableAppointments from '../AvailableAppointments/AvailableAppointments';
 const AppointmentBanner = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
+
     return (
         <section>
             <div className='py-24' style={{
@@ -24,7 +26,11 @@ const AppointmentBanner = () => {
                     </div>
                 </div>
             </div>
+
             <p className='text-center text-xl text-secondary'>Available Appointments on {format(selectedDate, 'PP')} </p>
+
+            <AvailableAppointments></AvailableAppointments>
+
 
         </section>
     );

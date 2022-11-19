@@ -21,6 +21,7 @@ const Appointment = () => {
                     </div>
                 </div>
             </div>
+
         </section>
     );
 };

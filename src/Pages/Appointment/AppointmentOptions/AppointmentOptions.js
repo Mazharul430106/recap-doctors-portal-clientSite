@@ -1,7 +1,8 @@
 import React from 'react';
 
 
-const AppointmentOptions = ({ appointment }) => {
+const AppointmentOptions = ({ appointment, setTreatement}) => {
+    console.log(appointment);
     const { name, slots } = appointment;
 
 
@@ -12,7 +13,7 @@ const AppointmentOptions = ({ appointment }) => {
                 <p className='text-center'>{slots[0]}</p>
                 <p className='text-center mb-1'> {slots.length} {slots.length > 0 ? 'spaces' : 'space'} Avaliable </p>
                 <div className="card-actions justify-center">
-                   <label htmlFor="booking-modal" className="btn btn-primary text-white bg-gradient-to-r from-secondary to-primary">Booking Appointment</label>
+                   <label onClick={()=>setTreatement(appointment)} htmlFor="booking-modal" className="btn btn-primary text-white bg-gradient-to-r from-secondary to-primary">Booking Appointment</label>
                 </div>
             </div>
         </div>

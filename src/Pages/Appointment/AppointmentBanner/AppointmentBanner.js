@@ -6,7 +6,6 @@ import { format } from 'date-fns';
 import AvailableAppointments from '../AvailableAppointments/AvailableAppointments';
 const AppointmentBanner = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
-
     return (
         <section>
             <div className='py-24' style={{
@@ -29,7 +28,7 @@ const AppointmentBanner = () => {
 
             <p className='text-center text-xl text-secondary'>Available Appointments on {format(selectedDate, 'PP')} </p>
 
-            <AvailableAppointments></AvailableAppointments>
+            <AvailableAppointments setSelectedDate={selectedDate}></AvailableAppointments>
 
 
         </section>

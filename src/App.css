@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.rdp-day_selected{
+  background-color: #19D3AE !important;
+}

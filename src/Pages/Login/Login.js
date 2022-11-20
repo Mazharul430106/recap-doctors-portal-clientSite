@@ -10,7 +10,6 @@ const Login = () => {
     const {loginUser, providerLogin} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
 
-
     const {register, handleSubmit } = useForm();
     const handleLoginForm = data =>{
         console.log(data);

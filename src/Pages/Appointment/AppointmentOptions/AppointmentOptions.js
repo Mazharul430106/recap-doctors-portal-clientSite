@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const AppointmentOptions = ({ appointment, setTreatement}) => {
-    console.log(appointment);
+    // console.log(appointment);
     const { name, slots } = appointment;
 
 

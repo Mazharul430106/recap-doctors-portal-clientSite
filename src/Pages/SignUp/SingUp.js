@@ -3,30 +3,45 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import ButtonComponent from '../../Components/ButtonComponent/ButtonComponent';
 import { AuthContext } from '../../Contexts/AuthProvider';
-import {toast} from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 
 
 
 const SingUp = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
     const { register, handleSubmit } = useForm()
     const navigate = useNavigate();
- 
+
     const handleSignUpForm = (data) => {
         createUser(data.email, data.password)
-        .then(result=> {
-            const user = result.user;
-            console.log(user);
-            toast.success('User SignUp Successfully');
-            navigate('/');
-        })
-        .catch(error=> {
-            console.log(error);
-            toast.error(error.message);
-        })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success('User SignUp Successfully');
+                navigate('/');
+
+                const profile = {
+                    displayName: data.name
+                }
+
+                updateUser(profile)
+                .then(()=>{
+
+                })
+                .catch(error=> {
+                    console.log(error)
+                })
+
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error(error.message);
+            })
+
     }
+
 
     return (
         <section className='my-24'>

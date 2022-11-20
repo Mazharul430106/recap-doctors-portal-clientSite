@@ -4,8 +4,7 @@ import React from 'react';
 const AppointmentOptions = ({ appointment, setTreatement}) => {
     // console.log(appointment);
     const { name, slots } = appointment;
-
-
+    
     return (
         <div className="card w-full bg-base-100 shadow-xl">
             <div className="card-body">

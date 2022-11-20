@@ -4,6 +4,7 @@ import AppointmentBanner from "../../Pages/Appointment/AppointmentBanner/Appoint
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SingUp from "../../Pages/SignUp/SingUp";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const routes = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/appointment',
-                element: <AppointmentBanner></AppointmentBanner>
+                element: <PrivateRoutes><AppointmentBanner></AppointmentBanner></PrivateRoutes>
             }
         ]
     }    

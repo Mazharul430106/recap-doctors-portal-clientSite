@@ -1,22 +1,30 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ButtonComponent from '../../Components/ButtonComponent/ButtonComponent';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import {toast} from 'react-hot-toast';
+
+
+
 
 const SingUp = () => {
 
     const {createUser} = useContext(AuthContext);
     const { register, handleSubmit } = useForm()
+    const navigate = useNavigate();
+ 
     const handleSignUpForm = (data) => {
         createUser(data.email, data.password)
         .then(result=> {
             const user = result.user;
             console.log(user);
-            alert('User SignUp Successfully');
+            toast.success('User SignUp Successfully');
+            navigate('/');
         })
         .catch(error=> {
             console.log(error);
+            toast.error(error.message);
         })
     }
 
@@ -44,7 +52,7 @@ const SingUp = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" {...register('password', { pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}/, required: true })} placeholder="password" className="input input-bordered" />
+                                    <input type="password" {...register('password', { pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{6,}/, required: true })} placeholder="password" className="input input-bordered" />
                                     <label className="label">
                                         <Link className="label-text-alt link link-hover">Forgot password?</Link>
                                     </label>

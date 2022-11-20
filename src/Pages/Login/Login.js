@@ -1,12 +1,15 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import ButtonComponent from '../../Components/ButtonComponent/ButtonComponent';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import {toast} from 'react-hot-toast';
 
 const Login = () => {
 
-    const {loginUser} = useContext(AuthContext);
+    const {loginUser, providerLogin} = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+
 
     const {register, handleSubmit } = useForm();
     const handleLoginForm = data =>{
@@ -15,10 +18,22 @@ const Login = () => {
         .then(result=> {
             const user = result.user;
             console.log(user);
-            alert('User Login Successfully');
+            toast.success('User Login Successfully');
         })
         .catch(error=> {
             console.log(error);
+        })
+    }
+
+    const handleSignUpGoogle = ()=> {
+        providerLogin(googleProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            toast.success('User Login Successfully');
+        })
+        .catch(error=> {
+            console.log(error)
         })
     }
 
@@ -57,10 +72,9 @@ const Login = () => {
                             </form>
 
                             <div className="form-control">
-                               <ButtonComponent>Continue With Google</ButtonComponent>
+                               <button type='btn' onClick={handleSignUpGoogle}  className='btn btn-primary bg-gradient-to-r from-secondary to-primary text-white' >Continue With Google</button>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
